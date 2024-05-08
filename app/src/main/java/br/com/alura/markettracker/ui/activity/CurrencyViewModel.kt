@@ -15,7 +15,7 @@ import java.util.TimerTask
 
 class CurrencyViewModel : ViewModel() {
     private lateinit var functions: GetFunctions
-    private lateinit var dao: CurrencyDao
+    internal lateinit var dao: CurrencyDao
     private val _currentDate = MutableLiveData<String>()
     val currentDate: LiveData<String> get() = _currentDate
     private val _pairList = MutableLiveData<List<Pair>>()
@@ -35,9 +35,8 @@ class CurrencyViewModel : ViewModel() {
     fun fetchData(type: String) {
         viewModelScope.launch {
             functions.callingAPI(dao, type)
-            val data = dao.getPairList(type)
-            _pairList.postValue(data)
-
+            val dataList = dao.getPairList(type)
+            _pairList.postValue(dataList)
         }
     }
 

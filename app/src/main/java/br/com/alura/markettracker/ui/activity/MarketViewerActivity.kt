@@ -1,12 +1,15 @@
 package br.com.alura.markettracker.ui.activity
 
+import CurrencyViewModel
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.telecom.Call
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import br.com.alura.markettracker.databinding.ActivityMarketViewerBinding
 import br.com.alura.markettracker.model.GetFunctions
 import br.com.alura.markettracker.model.webclient.RetrofitInitializer
@@ -23,8 +26,9 @@ import java.util.TimerTask
 
 class MarketViewerActivity: AppCompatActivity() {
 
+    private val viewModel: CurrencyViewModel by viewModels()
     private lateinit var dataTextView: TextView
-    private val functions : GetFunctions = GetFunctions()
+
     private lateinit var handler : Handler
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,12 +36,10 @@ class MarketViewerActivity: AppCompatActivity() {
         val binding = ActivityMarketViewerBinding.inflate(layoutInflater)
         setContentView(binding.root)
         dataTextView = binding.activityMarketViewerData
-        handler = Handler(Looper.getMainLooper())
-        handler.post(object : Runnable {
-            override fun run() {
-                dataTextView.text = functions.updateDate()
-                handler.postDelayed(this, 1000)
-            }
+
+        viewModel.init()
+        viewModel.currentDate.observe(this, Observer { currentDate ->
+            dataTextView.text = currentDate
         })
 
         binding.activityMarketViewerForex.setOnClickListener {
