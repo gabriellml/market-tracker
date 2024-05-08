@@ -29,8 +29,6 @@ class MarketViewerActivity: AppCompatActivity() {
     private val viewModel: CurrencyViewModel by viewModels()
     private lateinit var dataTextView: TextView
 
-    private lateinit var handler : Handler
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMarketViewerBinding.inflate(layoutInflater)
@@ -54,11 +52,6 @@ class MarketViewerActivity: AppCompatActivity() {
             startActivity(intent)
         }
 
-    }
-
-    override fun onDestroy() {
-        handler.removeCallbacksAndMessages(null)
-        super.onDestroy()
     }
 
 }

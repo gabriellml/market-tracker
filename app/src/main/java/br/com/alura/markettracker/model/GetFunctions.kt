@@ -114,6 +114,26 @@ open class GetFunctions() {
 //                            usd
                                 createPairList(demand = "usdt", currency, data, dao, marketType)
                             }
+                            "doge" -> {
+//                            precisa procurar por:
+//                            usd
+                                createPairList(demand = "usdt", currency, data, dao, marketType)
+                            }
+                            "ada" -> {
+//                            precisa procurar por:
+//                            usd
+                                createPairList(demand = "usdt", currency, data, dao, marketType)
+                            }
+                            "shib" -> {
+//                            precisa procurar por:
+//                            usd
+                                createPairList(demand = "usdt", currency, data, dao, marketType)
+                            }
+                            "trx" -> {
+//                            precisa procurar por:
+//                            usd
+                                createPairList(demand = "usdt", currency, data, dao, marketType)
+                            }
                         }
                 } else {
                     println("Falha na requisição: ${response.code()}")
@@ -129,7 +149,7 @@ open class GetFunctions() {
     fun createPairList(demand: String, currency: String, data: JsonObject?, dao: CurrencyDao, marketType: String) {
         val price = data?.getAsJsonObject(currency)?.get(demand)?.asString
         val novoPar = Pair(
-            parity = "$currency" + "$demand",
+            parity = "$currency".toUpperCase() + "$demand".toUpperCase(),
             price = price.toString()
         )
         dao.addPair(marketType, novoPar)
@@ -153,6 +173,10 @@ open class GetFunctions() {
             getCurrencyPrice("bnb", dao, marketType)
             getCurrencyPrice("sol", dao, marketType)
             getCurrencyPrice("xrp", dao, marketType)
+            getCurrencyPrice("doge", dao, marketType)
+            getCurrencyPrice("ada", dao, marketType)
+            getCurrencyPrice("shib", dao, marketType)
+            getCurrencyPrice("trx", dao, marketType)
         }
     }
 
