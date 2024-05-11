@@ -11,9 +11,9 @@
 
     <ImageView
         android:id="@+id/activity_main_icone"
-        android:src="@drawable/iconemt"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:src="@drawable/newmticontest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintVertical_bias="0.20"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,12 +33,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="@id/activity_main_welcome_view"
         app:layout_constraintTop_toTopOf="@id/activity_main_welcome_view"
+        app:layout_constraintEnd_toEndOf="@id/activity_main_welcome_view"
+        app:layout_constraintBottom_toBottomOf="@id/activity_main_welcome_view"
         android:textColor="@color/black"
-        android:text="WELCOME"/>
+        android:text="WELCOME TO MARKET TRACKER"/>
 
     <ImageView
         android:id="@+id/activity_main_access_view"
@@ -53,8 +53,9 @@
         android:id="@+id/activity_main_botao_next"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="@color/blue"
         app:layout_constraintBottom_toBottomOf="@id/activity_main_access_view"
-        android:background="@color/yellow"/>
+        tools:layout_editor_absoluteX="12dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -63,8 +64,9 @@
         app:layout_constraintEnd_toEndOf="@id/activity_main_botao_next"
         app:layout_constraintBottom_toBottomOf="@id/activity_main_botao_next"
         app:layout_constraintTop_toTopOf="@id/activity_main_botao_next"
-        android:textColor="@color/black"
-        android:text="PRÓXIMO"/>
+        android:textColor="@color/white"
+        android:text="PRÓXIMO"
+        android:textStyle="bold"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
