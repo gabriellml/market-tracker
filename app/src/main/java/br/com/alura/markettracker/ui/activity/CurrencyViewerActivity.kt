@@ -41,7 +41,6 @@ class CurrencyViewerActivity : AppCompatActivity(){
             adapter = CurrencyViewerAdapter(this, pairs)
             adapter.atualiza(pairs)
             recyclerView.adapter = adapter
-            Log.i(TAG, "onCreate: atualizando o adapter na activity através da chamada observe")
         })
 
 

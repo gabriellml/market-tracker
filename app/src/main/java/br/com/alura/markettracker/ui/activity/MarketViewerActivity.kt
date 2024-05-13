@@ -35,22 +35,22 @@ class MarketViewerActivity: AppCompatActivity() {
         setContentView(binding.root)
         dataTextView = binding.activityMarketViewerData
 
-        viewModel.init()
-        viewModel.fetchData("forex")
-        viewModel.fetchData("crypto")
+        viewModel.init() // passando o banco de dados e os métodos para o viewmodel
+        viewModel.fetchData("forex")    // aqui são realizadas as buscas API e ciração das listas de dados
+        viewModel.fetchData("crypto")   //
         viewModel.currentDate.observe(this, Observer { currentDate ->
             dataTextView.text = currentDate
         })
 
         binding.activityMarketViewerForex.setOnClickListener {
             val intent = Intent(this, CurrencyViewerActivity::class.java)
-            intent.putExtra("type", "forex")
+            intent.putExtra("type", "forex") // inicialização da activity com a intenção forex
             startActivity(intent)
         }
 
         binding.activityMarketViewerCrypto.setOnClickListener {
             val intent = Intent(this, CurrencyViewerActivity::class.java)
-            intent.putExtra("type", "crypto")
+            intent.putExtra("type", "crypto") // inicialização da activity com a intenção crypto
             startActivity(intent)
         }
 

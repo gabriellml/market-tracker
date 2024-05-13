@@ -34,7 +34,7 @@ class CurrencyViewModel : ViewModel() {
 
     fun fetchData(type: String) {
         viewModelScope.launch {
-            functions.callingAPI(dao, type)
+            functions.callingAPI(dao, type)                 // fazendo a requisição dos dados e criando as listas
             val dataList = dao.getPairList(type)
             _pairList.postValue(dataList)
         }
