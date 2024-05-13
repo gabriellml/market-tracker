@@ -31,8 +31,8 @@ class CurrencyViewerActivity : AppCompatActivity(){
         recyclerView = binding.activityPriceRecyclerview
         dataTextView = binding.activityPriceData
         viewModel.init()
-        viewModel.fetchData(type)
-
+        adapter = CurrencyViewerAdapter(this, viewModel.dao.getPairList(type))
+        recyclerView.adapter = adapter
         viewModel.currentDate.observe(this, Observer { currentDate ->
             dataTextView.text = currentDate
         })

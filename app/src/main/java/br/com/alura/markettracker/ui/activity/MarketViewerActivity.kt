@@ -36,6 +36,8 @@ class MarketViewerActivity: AppCompatActivity() {
         dataTextView = binding.activityMarketViewerData
 
         viewModel.init()
+        viewModel.fetchData("forex")
+        viewModel.fetchData("crypto")
         viewModel.currentDate.observe(this, Observer { currentDate ->
             dataTextView.text = currentDate
         })
