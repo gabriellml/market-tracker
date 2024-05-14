@@ -20,6 +20,8 @@ class CurrencyViewModel : ViewModel() {
     val currentDate: LiveData<String> get() = _currentDate
     private val _pairList = MutableLiveData<List<Pair>>()
     val pairList: LiveData<List<Pair>> get() = _pairList
+    private val _searchQuery = MutableLiveData<String>()
+    val searchQuery: LiveData<String> get() = _searchQuery
     val timer = Timer()
 
     fun init() {
@@ -37,6 +39,17 @@ class CurrencyViewModel : ViewModel() {
             functions.callingAPI(dao, type)                 // fazendo a requisição dos dados e criando as listas
             val dataList = dao.getPairList(type)
             _pairList.postValue(dataList)
+        }
+    }
+
+    fun updateSearchQuery(query: String) {
+        _searchQuery.value = query
+    }
+
+    fun performSearch(query : String, type : String) {
+        viewModelScope.launch {
+            val searchResults = dao.searchPairsByParity(query, type)
+            _pairList.postValue(searchResults)
         }
     }
 

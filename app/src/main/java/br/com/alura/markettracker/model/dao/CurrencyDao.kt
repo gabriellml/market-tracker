@@ -1,6 +1,7 @@
 package br.com.alura.markettracker.model.dao
 
 import br.com.alura.markettracker.model.Pair
+import retrofit2.http.Query
 
 class CurrencyDao {
 
@@ -28,6 +29,12 @@ class CurrencyDao {
             return cryptoList.toList()
         }
     }
+
+    suspend fun searchPairsByParity(query: String, type: String): List<Pair> {
+            return getPairList(type).filter { it.parity.contains(query, ignoreCase = true) }
+    }
+
+
 
     private fun existePar(par: Pair): Boolean {
         return forexList.any { it.parity == par.parity }

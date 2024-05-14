@@ -6,6 +6,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/grey">
 
+
+
+    <FrameLayout
+        android:id="@+id/activity_price_search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_price_data"
+        app:layout_constraintBottom_toTopOf="@id/activity_price_recyclerview"
+        >
+
+        <android.widget.SearchView
+            app:searchIcon="@drawable/ic_search_"
+            android:id="@+id/activity_price_search_input_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner_background"
+
+            />
+
+    </FrameLayout>
+
+
+
+
     <TextView
         android:id="@+id/activity_price_data"
         android:layout_width="wrap_content"
@@ -13,7 +44,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/activity_price_recyclerview"
+        app:layout_constraintBottom_toTopOf="@id/activity_price_search_bar"
         android:textColor="@color/white"
         android:text="DATA"
         android:layout_margin="12dp"/>
@@ -25,7 +56,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_price_data"
+        app:layout_constraintTop_toBottomOf="@id/activity_price_search_bar"
         tools:listitem="@layout/currency_display"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         />
