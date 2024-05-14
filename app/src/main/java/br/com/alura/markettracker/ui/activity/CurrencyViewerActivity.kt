@@ -48,13 +48,10 @@ class CurrencyViewerActivity : AppCompatActivity(){
                 TODO("Not yet implemented")
             }
             override fun onQueryTextChange(string: String?): Boolean {
-                Log.i(TAG, "onTextChanged: fora do if")
                 if (string.isNullOrEmpty()) {
                     adapter = CurrencyViewerAdapter(this@CurrencyViewerActivity, viewModel.dao.getPairList(type))
                     recyclerView.adapter = adapter
-                    Log.i(TAG, "onTextChanged: if")
                 } else {
-                    Log.i(TAG, "onTextChanged: else")
                     // Texto da busca não está vazio, execute a busca normalmente
                     viewModel.performSearch(string.toString(), type)
                 }

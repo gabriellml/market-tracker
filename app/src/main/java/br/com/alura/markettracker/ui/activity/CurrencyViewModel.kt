@@ -42,10 +42,6 @@ class CurrencyViewModel : ViewModel() {
         }
     }
 
-    fun updateSearchQuery(query: String) {
-        _searchQuery.value = query
-    }
-
     fun performSearch(query : String, type : String) {
         viewModelScope.launch {
             val searchResults = dao.searchPairsByParity(query, type)
