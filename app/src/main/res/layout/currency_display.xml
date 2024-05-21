@@ -12,21 +12,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:minHeight="60dp"
+        android:minHeight="65dp"
         android:background="@color/grey">
 
         <TextView
             android:id="@+id/activity_market_viewer_currency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintHorizontal_bias="0.20"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:textColor="@color/yellow"
             android:textStyle="bold"
-            android:text="IBOV:"/>
+            android:text="CURRENCY:"/>
 
         <TextView
             android:id="@+id/activity_market_viewer_price"
@@ -36,10 +36,52 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.68"
+            app:layout_constraintHorizontal_bias="0.70"
             android:textColor="@color/yellow"
             android:textStyle="bold"
-            android:text="liglawers"
+            android:text="PRICE"
             />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <TextView
+                android:id="@+id/activity_market_viewer_offer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/activity_market_viewer_barra"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="@color/yellow"
+                android:layout_marginHorizontal="8dp"
+                android:text="offer"
+                />
+            <TextView
+                android:id="@+id/activity_market_viewer_barra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/activity_market_viewer_offer"
+                app:layout_constraintEnd_toEndOf="@id/activity_market_viewer_demand"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="@color/yellow"
+                android:text="/"
+                />
+            <TextView
+                android:id="@+id/activity_market_viewer_demand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/activity_market_viewer_barra"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="@color/yellow"
+                android:layout_marginHorizontal="8dp"
+                android:text="demand"
+                />
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

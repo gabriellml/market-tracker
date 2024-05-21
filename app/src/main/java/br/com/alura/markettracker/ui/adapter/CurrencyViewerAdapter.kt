@@ -1,14 +1,13 @@
 package br.com.alura.markettracker.ui.adapter
 
-import android.content.ContentValues
-import android.content.ContentValues.TAG
 import android.content.Context
-import android.util.Log
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.alura.markettracker.databinding.CurrencyDisplayBinding
 import br.com.alura.markettracker.model.Pair
+import br.com.alura.markettracker.ui.activity.ExchangeRateActivity
 
 
 class CurrencyViewerAdapter(private val context: Context, pares: List<Pair>) : RecyclerView.Adapter<CurrencyViewerAdapter.ViewHolder>(){
@@ -19,8 +18,12 @@ class CurrencyViewerAdapter(private val context: Context, pares: List<Pair>) : R
 
         private val parity = binding.activityMarketViewerCurrency
         private val price = binding.activityMarketViewerPrice
+        private val offer = binding.activityMarketViewerOffer
+        private val demand = binding.activityMarketViewerDemand
 
         fun vincula(par : Pair) {
+            offer.text = par.offerFiatCurrency
+            demand.text = par.demandFiatCurrency
             parity.text = par.parity
             price.text = par.price
         }
@@ -39,6 +42,18 @@ class CurrencyViewerAdapter(private val context: Context, pares: List<Pair>) : R
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val par = pares[position]
         holder.vincula(par)
+
+        holder.itemView.setOnClickListener {
+            // Crie uma Intent para abrir a nova activity
+            val intent = Intent(context, ExchangeRateActivity::class.java)
+            // Adicione quaisquer extras necessários à Intent, como dados do par clicado
+            intent.putExtra("price", par.price)
+            intent.putExtra("offer", par.offerFiatCurrency)
+            intent.putExtra("demand", par.demandFiatCurrency)
+            intent.putExtra("offerCode", par.offerCode)
+            intent.putExtra("demandCode", par.demandCode)
+            context.startActivity(intent)
+        }
     }
 
     fun atualiza(pares: List<Pair>) {

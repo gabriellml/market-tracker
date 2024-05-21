@@ -30,109 +30,123 @@ open class GetFunctions() {
                     val data = response.body()
                         when(currency) {
                             "eur" -> {
-                                createPairList(demand = "usd", currency, data, dao, marketType)
-                                createPairList(demand = "gbp", currency, data, dao, marketType)
-                                createPairList(demand = "jpy", currency, data, dao, marketType)
-                                createPairList(demand = "cad", currency, data, dao, marketType)
-                                createPairList(demand = "aud", currency, data, dao, marketType)
-                                createPairList(demand = "nzd", currency, data, dao, marketType)
-                                createPairList(demand = "chf", currency, data, dao, marketType)
-                                createPairList(demand = "brl", currency, data, dao, marketType)
+                                val offer = "Euro"
+                                createPairList(demand = "usd", offer, currency, data, dao, marketType)
+                                createPairList(demand = "gbp", offer, currency, data, dao, marketType)
+                                createPairList(demand = "jpy", offer, currency, data, dao, marketType)
+                                createPairList(demand = "cad", offer, currency, data, dao, marketType)
+                                createPairList(demand = "aud", offer, currency, data, dao, marketType)
+                                createPairList(demand = "nzd", offer, currency, data, dao, marketType)
+                                createPairList(demand = "chf", offer, currency, data, dao, marketType)
+                                createPairList(demand = "brl", offer, currency, data, dao, marketType)
                             }
 
                             "gbp" -> {
-                                createPairList(demand = "usd", currency, data, dao, marketType)
-                                createPairList(demand = "jpy", currency, data, dao, marketType)
-                                createPairList(demand = "cad", currency, data, dao, marketType)
-                                createPairList(demand = "aud", currency, data, dao, marketType)
-                                createPairList(demand = "nzd", currency, data, dao, marketType)
-                                createPairList(demand = "chf", currency, data, dao, marketType)
-                                createPairList(demand = "brl", currency, data, dao, marketType)
+                                val offer = "Great British Pound"
+                                createPairList(demand = "usd", offer, currency, data, dao, marketType)
+                                createPairList(demand = "jpy", offer, currency, data, dao, marketType)
+                                createPairList(demand = "cad", offer, currency, data, dao, marketType)
+                                createPairList(demand = "aud", offer, currency, data, dao, marketType)
+                                createPairList(demand = "nzd", offer, currency, data, dao, marketType)
+                                createPairList(demand = "chf", offer, currency, data, dao, marketType)
+                                createPairList(demand = "brl", offer, currency, data, dao, marketType)
                             }
 
                             "usd" -> {
-                                createPairList(demand = "jpy", currency, data, dao, marketType)
-                                createPairList(demand = "cad", currency, data, dao, marketType)
-                                createPairList(demand = "chf", currency, data, dao, marketType)
-                                createPairList(demand = "brl", currency, data, dao, marketType)
+                                val offer = "United States Dollar"
+                                createPairList(demand = "jpy", offer, currency, data, dao, marketType)
+                                createPairList(demand = "cad", offer, currency, data, dao, marketType)
+                                createPairList(demand = "chf", offer, currency, data, dao, marketType)
+                                createPairList(demand = "brl", offer, currency, data, dao, marketType)
 
                             }
 
                             "aud" -> {
-
-                                createPairList(demand = "usd", currency, data, dao, marketType)
-                                createPairList(demand = "jpy", currency, data, dao, marketType)
-                                createPairList(demand = "cad", currency, data, dao, marketType)
-                                createPairList(demand = "nzd", currency, data, dao, marketType)
-                                createPairList(demand = "chf", currency, data, dao, marketType)
-                                createPairList(demand = "brl", currency, data, dao, marketType)
+                                val offer = "Australian Dollar"
+                                createPairList(demand = "usd", offer, currency, data, dao, marketType)
+                                createPairList(demand = "jpy", offer, currency, data, dao, marketType)
+                                createPairList(demand = "cad", offer, currency, data, dao, marketType)
+                                createPairList(demand = "nzd", offer, currency, data, dao, marketType)
+                                createPairList(demand = "chf", offer, currency, data, dao, marketType)
+                                createPairList(demand = "brl", offer, currency, data, dao, marketType)
                             }
 
                             "nzd" -> {
-                                createPairList(demand = "usd", currency, data, dao, marketType)
-                                createPairList(demand = "jpy", currency, data, dao, marketType)
-                                createPairList(demand = "cad", currency, data, dao, marketType)
-                                createPairList(demand = "chf", currency, data, dao, marketType)
-                                createPairList(demand = "brl", currency, data, dao, marketType)
+                                val offer = "New Zealand Dollar"
+                                createPairList(demand = "usd", offer, currency, data, dao, marketType)
+                                createPairList(demand = "jpy", offer, currency, data, dao, marketType)
+                                createPairList(demand = "cad", offer, currency, data, dao, marketType)
+                                createPairList(demand = "chf", offer, currency, data, dao, marketType)
+                                createPairList(demand = "brl", offer, currency, data, dao, marketType)
                             }
 
                             "cad" -> {
-                                createPairList(demand = "jpy", currency, data, dao, marketType)
-                                createPairList(demand = "chf", currency, data, dao, marketType)
-                                createPairList(demand = "brl", currency, data, dao, marketType)
+                                val offer = "Canadian Dollar"
+                                createPairList(demand = "jpy", offer, currency, data, dao, marketType)
+                                createPairList(demand = "chf", offer, currency, data, dao, marketType)
+                                createPairList(demand = "brl", offer, currency, data, dao, marketType)
                             }
 
                             "chf" -> {
-                                val jpyRate = data?.get("jpy")?.asString
-                                createPairList(demand = "jpy", currency, data, dao, marketType)
-                                createPairList(demand = "brl", currency, data, dao, marketType)
+                                val offer = "Swiss Franc"
+                                createPairList(demand = "jpy", offer, currency, data, dao, marketType)
+                                createPairList(demand = "brl", offer, currency, data, dao, marketType)
 
                             }
 
                             "btc" -> {
 //                            precisa procurar por:
 //                            usd
-                                createPairList(demand = "usdt", currency, data, dao, marketType)
+                                val offer = "Bitcoin"
+                                createPairList(demand = "usdt", offer, currency, data, dao, marketType)
                             }
                             "eth" -> {
 //                            precisa procurar por:
 //                            usd
-                                createPairList(demand = "usdt", currency, data, dao, marketType)
+                                val offer = "Ethereum"
+                                createPairList(demand = "usdt", offer, currency, data, dao, marketType)
                             }
                             "bnb" -> {
 //                            precisa procurar por:
 //                            usd
-                                createPairList(demand = "usdt", currency, data, dao, marketType)
+                                val offer = "Binance Coin"
+                                createPairList(demand = "usdt", offer, currency, data, dao, marketType)
                             }
                             "sol" -> {
 //                            precisa procurar por:
 //                            usd
-                                createPairList(demand = "usdt", currency, data, dao, marketType)
+                                val offer = "Solana"
+                                createPairList(demand = "usdt", offer, currency, data, dao, marketType)
                             }
                             "xrp" -> {
 //                            precisa procurar por:
 //                            usd
-                                createPairList(demand = "usdt", currency, data, dao, marketType)
+                                val offer = "Ripple"
+                                createPairList(demand = "usdt", offer, currency, data, dao, marketType)
                             }
                             "doge" -> {
 //                            precisa procurar por:
 //                            usd
-                                createPairList(demand = "usdt", currency, data, dao, marketType)
+                                val offer = "Doge Coin"
+                                createPairList(demand = "usdt", offer, currency, data, dao, marketType)
                             }
                             "ada" -> {
 //                            precisa procurar por:
 //                            usd
-                                createPairList(demand = "usdt", currency, data, dao, marketType)
+                                val offer = "Cardano"
+                                createPairList(demand = "usdt", offer, currency, data, dao, marketType)
                             }
                             "shib" -> {
 //                            precisa procurar por:
 //                            usd
-                                createPairList(demand = "usdt", currency, data, dao, marketType)
+                                val offer = "Shiba Inu"
+                                createPairList(demand = "usdt", offer, currency, data, dao, marketType)
                             }
                             "trx" -> {
 //                            precisa procurar por:
 //                            usd
-                                createPairList(demand = "usdt", currency, data, dao, marketType)
+                                val offer = "Tron"
+                                createPairList(demand = "usdt", offer, currency, data, dao, marketType)
                             }
                         }
                 } else {
@@ -146,9 +160,26 @@ open class GetFunctions() {
         })
     }
 
-    fun createPairList(demand: String, currency: String, data: JsonObject?, dao: CurrencyDao, marketType: String) {
+    fun createPairList(demand: String, offer: String, currency: String, data: JsonObject?, dao: CurrencyDao, marketType: String) {
         val price = data?.getAsJsonObject(currency)?.get(demand)?.asString
+        var demandFiat = ""
+        when(demand){
+            "brl" -> { demandFiat = "Brazilian Real" }
+            "gbp" -> { demandFiat = "Great British Pound" }
+            "usd" -> { demandFiat = "United States Dollar" }
+            "cad" -> { demandFiat = "Canadian Dollar" }
+            "aud" -> { demandFiat = "Australian Dollar" }
+            "nzd" -> { demandFiat = "New Zealand Dollar" }
+            "chf" -> { demandFiat = "Swiss Franc" }
+            "eur" -> { demandFiat = "Euro" }
+            "jpy" -> { demandFiat = "Japanese Yen" }
+            "usdt" -> { demandFiat = "Tether USD" }
+        }
         val novoPar = Pair(
+            offerFiatCurrency = offer,
+            demandFiatCurrency = demandFiat,
+            offerCode = currency.toUpperCase(),
+            demandCode = demand.toUpperCase(),
             parity = "$currency".toUpperCase() + "$demand".toUpperCase(),
             price = price.toString()
         )
