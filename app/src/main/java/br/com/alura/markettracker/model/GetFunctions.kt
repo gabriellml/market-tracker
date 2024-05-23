@@ -148,6 +148,54 @@ open class GetFunctions() {
                                 val offer = "Tron"
                                 createPairList(demand = "usdt", offer, currency, data, dao, marketType)
                             }
+                            "ton" -> {
+//                            precisa procurar por:
+//                            usd
+                                val offer = "Toncoin"
+                                createPairList(demand = "usdt", offer, currency, data, dao, marketType)
+                            }
+                            "avax" -> {
+//                            precisa procurar por:
+//                            usd
+                                val offer = "Avalanche"
+                                createPairList(demand = "usdt", offer, currency, data, dao, marketType)
+                            }
+                            "link" -> {
+//                            precisa procurar por:
+//                            usd
+                                val offer = "Chainlink"
+                                createPairList(demand = "usdt", offer, currency, data, dao, marketType)
+                            }
+                            "near" -> {
+//                            precisa procurar por:
+//                            usd
+                                val offer = "NEAR Protocol"
+                                createPairList(demand = "usdt", offer, currency, data, dao, marketType)
+                            }
+                            "matic" -> {
+//                            precisa procurar por:
+//                            usd
+                                val offer = "Polygon"
+                                createPairList(demand = "usdt", offer, currency, data, dao, marketType)
+                            }
+                            "ltc" -> {
+//                            precisa procurar por:
+//                            usd
+                                val offer = "Litecoin"
+                                createPairList(demand = "usdt", offer, currency, data, dao, marketType)
+                            }
+                            "icp" -> {
+//                            precisa procurar por:
+//                            usd
+                                val offer = "Internet Protocol"
+                                createPairList(demand = "usdt", offer, currency, data, dao, marketType)
+                            }
+                            "trx" -> {
+//                            precisa procurar por:
+//                            usd
+                                val offer = "Tron"
+                                createPairList(demand = "usdt", offer, currency, data, dao, marketType)
+                            }
                         }
                 } else {
                     println("Falha na requisição: ${response.code()}")
@@ -208,6 +256,13 @@ open class GetFunctions() {
             getCurrencyPrice("ada", dao, marketType)
             getCurrencyPrice("shib", dao, marketType)
             getCurrencyPrice("trx", dao, marketType)
+            getCurrencyPrice("ton", dao, marketType)
+            getCurrencyPrice("avax", dao, marketType)
+            getCurrencyPrice("link", dao, marketType)
+            getCurrencyPrice("near", dao, marketType)
+            getCurrencyPrice("matic", dao, marketType)
+            getCurrencyPrice("ltc", dao, marketType)
+            getCurrencyPrice("icp", dao, marketType)
         }
     }
 
