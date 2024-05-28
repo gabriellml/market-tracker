@@ -4,13 +4,18 @@ package br.com.alura.markettracker.ui.activity
 import androidx.activity.viewModels
 import CurrencyViewModel
 import android.content.ContentValues.TAG
+import android.content.Context
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
+import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import br.com.alura.markettracker.databinding.ActivityCurrencyViewerBinding
@@ -42,6 +47,10 @@ class CurrencyViewerActivity : AppCompatActivity(){
         viewModel.currentDate.observe(this, Observer { currentDate ->
             dataTextView.text = currentDate
         })
+
+        textSearchView.setOnClickListener {
+            textSearchView.isIconified = false
+        }
 
         textSearchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(string: String?): Boolean {
